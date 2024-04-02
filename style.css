@@ -1,0 +1,116 @@
+/*
+Theme Name:     OnTap Progression Child
+Description:    Child Theme for OnTap Theme
+Author:         Progression Studios
+Template:       ontap-progression
+
+*/
+/*
+@media only screen and (max-width: 1024px) {
+    .mobile-menu-icon-pro {
+        cursor:pointer;
+        line-height:1;
+        display:block;
+        float:left;
+        margin-right:0px;
+        text-align:left;
+        padding-right:0px;
+    }
+}
+*/
+/* Prevents beers abv and descriptions from wrapping */
+.beers-repeat-list-container { 
+	white-space: nowrap;
+}
+
+/* Since links are removed from styles, replace the color */
+.beers-category-index {
+	color:#f0652C;
+}
+
+ul.progression-filter-button-group {
+    text-align: center;
+}
+
+ul.beers-availability-list-container {
+	list-style:none;
+	text-align:center;
+	padding:0px;
+	border-right:none;
+	margin:0px 0px 30px 0px;
+}
+
+ul.beers-availability-list-container li {
+	display:inline;
+	margin:0px 4px 0px 0px;
+	padding:10px 10px 9px 10px;
+	color: #ff6000;
+	font-weight:500;
+	border:1px solid #e5e8e8;
+	border-radius: 20px;
+	border-right:0px;
+	font-size:11px;
+	line-height:1;
+}
+
+ul.beers-availability-list-container li:last-child {
+	border-right:1px solid #e5e8e8;
+}
+
+ul.beers-availability-list-container li:first-child {
+	background:#ff6000;
+	color:#ffffff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Spartan', sans-serif;
+}
+
+/* Header menu */
+body.progression-studios-header-sidebar-before #progression-inline-icons .progression-studios-social-icons, body.progression-studios-header-sidebar-before:before, header#masthead-pro {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.progression-studios-transparent-header .progression-sticky-scrolled header#masthead-pro, .progression-studios-transparent-header .progression-studios-overlay-header header#masthead-pro, header#masthead-pro {
+    z-index: 50;
+    position: relative;
+    width: 100%;
+}
+
+@media only screen and (min-width: 1025px) and (max-width: 1300px) {
+	header#masthead-pro.progression-studios-nav-center #progression-nav-container #progression-nav-right-float, header#masthead-pro.progression-studios-nav-center #progression-nav-container #progression-nav-left-float {
+    width: calc(50% - 106px);
+	}
+	header#masthead-pro.progression-studios-nav-center #progression-nav-container #progression-nav-right-float {
+    left: calc(50% + 106px);
+	}
+}
+
+/* Left */
+header#masthead-pro.progression-studios-nav-center #progression-nav-container #progression-nav-right-float, header#masthead-pro.progression-studios-nav-center #progression-nav-container #progression-nav-left-float {
+    width: calc(50% - 116px);
+}
+header#masthead-pro.progression-studios-nav-center #progression-nav-container #progression-nav-left-float {
+    width: 50%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 90;
+}
+
+/* Right */
+header#masthead-pro.progression-studios-nav-center #progression-nav-container #progression-nav-right-float {
+    left: calc(50% + 116px);
+}
+header#masthead-pro.progression-studios-nav-center #progression-nav-container #progression-nav-right-float, header#masthead-pro.progression-studios-nav-center #progression-nav-container #progression-nav-left-float {
+    width: calc(50% - 116px);
+}
+header#masthead-pro.progression-studios-nav-center #progression-nav-container #progression-nav-right-float {
+    width: 50%;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    z-index: 90;
+}

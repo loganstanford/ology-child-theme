@@ -98,7 +98,7 @@ if (isset($args_template['location'])) {
 						?>
                 <li class="beers-availability-list">Available in</li>
                 <?php
-						foreach ($containers as $slug) {
+						foreach ($containers[0] as $slug) {
 							$term = get_term_by('slug', $slug, 'ology-container'); // replace 'your_taxonomy' with the actual taxonomy slug
 							if ($term) {
 								?>

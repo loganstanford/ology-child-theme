@@ -68,6 +68,11 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Spartan', sans-serif;
 }
 
+.progression-studios-beers-excerpt {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
 /* Header menu */
 body.progression-studios-header-sidebar-before #progression-inline-icons .progression-studios-social-icons, body.progression-studios-header-sidebar-before:before, header#masthead-pro {
     background-repeat: no-repeat;

@@ -30,6 +30,7 @@ Template:       ontap-progression
 
 ul.progression-filter-button-group {
     text-align: center;
+    line-height: 4.2rem;
 }
 
 ul.beers-availability-list-container {

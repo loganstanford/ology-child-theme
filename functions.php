@@ -37,27 +37,28 @@ function ology_spirit_portfolio_image_link() {
 ?>
 
 <?php if(get_post_meta($post->ID, 'ology_spirit_blog_featured_image_link', true) != 'progression_link_none'): ?>
-	<?php if(get_post_meta($post->ID, 'ology_spirit_blog_featured_image_link', true) == 'progression_link_url'): ?>
-		
-		<a href="<?php echo esc_url( get_post_meta($post->ID, 'ology_spirit_external_link', true) );?>">
-			
-		<?php else: ?>
-			
-		<?php if(get_post_meta($post->ID, 'ology_spirit_blog_featured_image_link', true) == 'progression_link_url_new_window'): ?>
-			
-			<a href="<?php echo esc_url( get_post_meta($post->ID, 'progression_studios_external_link', true) );?>" target="_blank">
-			
-			<?php else: ?>
-				<a href="<?php the_permalink(); ?>">
-			
-		<?php endif; ?>
-		
-	<?php endif; ?>
-<?php endif; ?>
+<?php if(get_post_meta($post->ID, 'ology_spirit_blog_featured_image_link', true) == 'progression_link_url'): ?>
 
-	
-	
-<?php
+<a href="<?php echo esc_url( get_post_meta($post->ID, 'ology_spirit_external_link', true) );?>">
+
+    <?php else: ?>
+
+    <?php if(get_post_meta($post->ID, 'ology_spirit_blog_featured_image_link', true) == 'progression_link_url_new_window'): ?>
+
+    <a href="<?php echo esc_url( get_post_meta($post->ID, 'progression_studios_external_link', true) );?>"
+        target="_blank">
+
+        <?php else: ?>
+        <a href="<?php the_permalink(); ?>">
+
+            <?php endif; ?>
+
+            <?php endif; ?>
+            <?php endif; ?>
+
+
+
+            <?php
 }
 
 function ology_spirit_setup() {
@@ -77,28 +78,29 @@ function ology_beers_portfolio_image_link() {
 	global $post;
 ?>
 
-<?php if(get_post_meta($post->ID, 'progression_studios_blog_featured_image_link', true) != 'progression_link_none'): ?>
-	<?php if(get_post_meta($post->ID, 'progression_studios_blog_featured_image_link', true) == 'progression_link_url'): ?>
-		
-		<a href="<?php echo esc_url( get_post_meta($post->ID, 'progression_elements_external_link', true) );?>">
-			
-		<?php else: ?>
-			
-		<?php if(get_post_meta($post->ID, 'progression_elements_blog_featured_image_link', true) == 'progression_link_url_new_window'): ?>
-			
-			<a href="<?php echo esc_url( get_post_meta($post->ID, 'ology_beers_external_link', true) );?>" target="_blank">
-			
-			<?php else: ?>
-				<a href="<?php the_permalink(); ?>">
-			
-		<?php endif; ?>
-	<?php endif; ?>
-<?php endif; ?>
-<?php
+            <?php if(get_post_meta($post->ID, 'progression_studios_blog_featured_image_link', true) != 'progression_link_none'): ?>
+            <?php if(get_post_meta($post->ID, 'progression_studios_blog_featured_image_link', true) == 'progression_link_url'): ?>
+
+            <a href="<?php echo esc_url( get_post_meta($post->ID, 'progression_elements_external_link', true) );?>">
+
+                <?php else: ?>
+
+                <?php if(get_post_meta($post->ID, 'progression_elements_blog_featured_image_link', true) == 'progression_link_url_new_window'): ?>
+
+                <a href="<?php echo esc_url( get_post_meta($post->ID, 'ology_beers_external_link', true) );?>"
+                    target="_blank">
+
+                    <?php else: ?>
+                    <a href="<?php the_permalink(); ?>">
+
+                        <?php endif; ?>
+                        <?php endif; ?>
+                        <?php endif; ?>
+                        <?php
 }
 
 
 function ology_beers_setup() {
-    add_image_size('ology-beers-index', 279, 496, true);
+    add_image_size('ology-beers-index', 300, 300, true);
 }
 add_action( 'after_setup_theme', 'ology_beers_setup');

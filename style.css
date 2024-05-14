@@ -33,6 +33,7 @@ ul.progression-filter-button-group {
 }
 
 ul.beers-availability-list-container {
+    line-height: 2.2rem;
 	list-style:none;
 	text-align:center;
 	padding:0px;

@@ -13,36 +13,23 @@ if (isset($args_template['location'])) {
 ?>
 <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <div class="progression-studios-beers-index">
-        <?php
-		?>
 
-        <?php if ($settings[$prefix . 'image'] == 'yes'): ?>
-        <?php if (has_post_thumbnail()): ?>
+        <?php if ($settings[$prefix . 'image'] == 'yes' && has_post_thumbnail()): ?>
         <div class="progression-studios-feaured-beer-image">
-            <?php progression_studios_portfolio_image_link(); ?>
             <?php the_post_thumbnail('ology-beers-index'); ?>
-            <?php if (get_post_meta($post->ID, 'progression_studios_blog_featured_image_link', true) != 'progression_link_none'): ?></a>
-            <?php endif; ?>
         </div><!-- close .progression-studios-feaured-beer-image -->
-        <?php endif; ?>
-        <!-- close featured thumbnail -->
         <?php endif; ?>
 
         <div class="progression-beers-content">
             <?php if ($settings[$prefix . 'style'] == 'yes'): ?>
             <?php
 				$terms = get_the_terms($post->ID, 'beer-style');
-				//print_r($terms);
 				if (!empty($terms)):
 					echo '<ul class="beers-category-index">';
 					foreach ($terms as $term_single) {
 						if ($term_single->parent != 0) {
 							continue;
 						}
-						$term_link = get_term_link($term_single, 'beer-style');
-						if (is_wp_error($term_link))
-							continue;
-						//echo '<li><a href="' . $term_link . '">' . $term_single->name . '</a></li>';
 						echo '<li>' . $term_single->name . '</li>';
 					}
 					echo '</ul>';
@@ -51,44 +38,30 @@ if (isset($args_template['location'])) {
             <?php endif; ?>
 
             <h2 class="progression-beers-title">
-                <?php ology_beers_portfolio_image_link(); ?>
+                <?php // ology_beers_portfolio_image_link(); -- If this adds a link, it should be removed or commented out as done here. ?>
                 <?php the_title(); ?>
-                <?php if (get_post_meta($post->ID, 'progression_studios_featured_image_link', true) != 'progression_link_none'): ?></a>
-                <?php endif; ?>
             </h2>
 
-            <?php if ($settings[$prefix . 'features'] == 'yes'): ?>
-            <?php if ($abv = get_post_meta(get_the_ID(), 'ology_abv', true)) {
-					?>
+            <?php if ($settings[$prefix . 'features'] == 'yes' && ($abv = get_post_meta(get_the_ID(), 'ology_abv', true))): ?>
             <ul class="beers-repeat-list-container">
-                <?php
-						if ($flavors = get_post_meta(get_the_ID(), 'ology_hops', true)) {
-							?>
-                <li class="beers-description-repeat-pro">
-                    <?php echo wp_kses($flavors, true); ?>
+                <?php 
+                $flavors = get_post_meta(get_the_ID(), 'ology_hops', true);
+                ?>
+                <li class="beers-description-repeat-pro<?php echo empty($flavors) ? ' hidden' : ''; ?>">
+                    <?php echo !empty($flavors) ? wp_kses_post($flavors) : ''; ?>
                 </li>
-                <?php
-						} else {
-							?>
-                <li class="beers-description-repeat-pro"></li>
-                <?php
-						}
-						if ($abv) {
-							if (!str_contains($abv, '%')) {
-								$abv .= '%';
-							}
-							?>
-                <li class="beers-description-repeat-pro">
-                    <?php echo $abv . " ABV"; ?>
-                </li>
-                <?php
-						}
-						?>
-            </ul>
-            <?php
 
-				} ?>
+                <?php
+                if (!str_contains($abv, '%')) {
+                    $abv .= '%';
+                }
+                ?>
+                <li class="beers-description-repeat-pro">
+                    <?php echo esc_html($abv) . " ABV"; ?>
+                </li>
+            </ul>
             <?php endif; ?>
+
             <?php if ($settings[$prefix . 'availability'] == 'yes' && isset($location)): ?>
             <?php //if(get_post_meta( get_the_ID(), 'progression_studios_display_season', true )):  ?>
             <ul class="beers-availability-list-container">
@@ -115,11 +88,17 @@ if (isset($args_template['location'])) {
             <?php endif; ?>
 
             <?php if ($settings[$prefix . 'excerpt'] == 'yes'): ?>
-            <?php if (has_excerpt()): ?>
-            <div class="progression-studios-beers-excerpt">
-                <?php the_excerpt(); ?>
-            </div><!-- close .progression-studios-beers-excerpt -->
-            <?php endif; ?>
+            <!-- Conditionally display Beer Description or excerpt -->
+            <?php 
+            $beer_description = get_post_meta(get_the_ID(), 'ology_beer_description', true);
+            if (!empty($beer_description)) {
+                echo '<div class="progression-studios-beers-excerpt">' . esc_html($beer_description) . '</div>';
+            } elseif (has_excerpt()) {
+                echo '<div class="progression-studios-beers-excerpt">';
+                the_excerpt();
+                echo '</div>';
+            }
+            ?>
             <?php endif; ?>
 
             <?php if (get_post_meta($post->ID, 'progression_studios_button_text', true)): ?>

@@ -63,28 +63,9 @@ if (isset($args_template['location'])) {
             </ul>
             <?php endif; ?>
 
-            <?php if ($settings[$prefix . 'availability'] == 'yes' && isset($location)) : ?>
-            <?php //if(get_post_meta( get_the_ID(), 'progression_studios_display_season', true )):  
-                ?>
+            <?php if ($settings[$prefix . 'show_availability'] == 'yes' && isset($location)) : ?>
             <ul class="beers-availability-list-container">
-                <?php
-                    $containers = get_post_meta(get_the_ID(), 'ology_' . $location . '_availability');
-                    if ($containers) {
-                    ?>
-                <li class="beers-availability-list text-nowrap">Available in</li>
-                <?php
-                        foreach ($containers[0] as $slug) {
-                            $term = get_term_by('slug', $slug, 'ology-container'); // replace 'your_taxonomy' with the actual taxonomy slug
-                            if ($term) {
-                        ?>
-                <li class="beers-availability-list text-nowrap">
-                    <?php echo esc_html($term->name); ?>
-                </li>
-                <?php
-                            }
-                        }
-                    }
-                    ?>
+                <li class="beers-availability-list text-nowrap">On Draft</li>
             </ul>
             <div class="clearfix-pro"></div>
             <?php endif; ?>

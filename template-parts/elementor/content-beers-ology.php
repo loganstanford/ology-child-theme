@@ -63,10 +63,10 @@ if (isset($args_template['location'])) {
             </ul>
             <?php endif; ?>
 
-            <?php if ($settings[$prefix . 'show_availability'] == 'yes' && isset($location)) : ?>
-            <ul class="beers-availability-list-container">
-                <li class="beers-availability-list text-nowrap">On Draft</li>
-            </ul>
+            <?php if ($settings[$prefix . 'show_availability'] == 'yes' && isset($location)) :
+                // ADD CONTAINER SIZES HERE
+            ?>
+
             <div class="clearfix-pro"></div>
             <?php endif; ?>
 

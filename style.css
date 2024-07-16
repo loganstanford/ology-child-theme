@@ -30,6 +30,7 @@ Template:       ontap-progression
 
 ul.progression-filter-button-group {
     text-align: center;
+    line-height: 4.2rem;
 }
 
 ul.beers-availability-list-container {
@@ -63,8 +64,23 @@ ul.beers-availability-list-container li:first-child {
 	color:#ffffff;
 }
 
+.progression-beers-content {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+a.tribe-events-calendar-list__event-title-link.tribe-common-anchor-thin {
+    background-color: #ff6000;
+    color: white;
+}
+
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Spartan', sans-serif;
+}
+
+.progression-studios-beers-excerpt {
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 /* Header menu */

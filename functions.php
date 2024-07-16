@@ -101,6 +101,6 @@ function ology_beers_portfolio_image_link() {
 
 
 function ology_beers_setup() {
-    add_image_size('ology-beers-index', 300, 300, true);
+    add_image_size('ology-beers-index', 300, 300, false);
 }
 add_action( 'after_setup_theme', 'ology_beers_setup');

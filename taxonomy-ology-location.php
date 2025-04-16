@@ -33,9 +33,9 @@ body #page-title-overlay-image {
 				<?php 
 				$location_slug = strtolower( str_replace(' ', '-', $term_cat->name) );
 				if ($term_cat->name == 'Northside' || $term_cat->name == 'Tampa' || $term_cat->name == 'PowerMill' ) {
-					getUntappdItems('tampa', true);
-					getUntappdItems('northside', true);
-					getUntappdItems('powermill', true);
+					getUntappdItems('tampa', false);
+					getUntappdItems('northside', false);
+					getUntappdItems('powermill', false);
 					//print_r(wp_get_schedules());
 				}
 				
